@@ -1,3 +1,12 @@
+<?php 
+	session_start();
+
+    if (!isset($_SESSION['admin'])) {
+        echo "<script> alert('Anda Belum Login, Silahkan Tekan Ok Untuk Login'); </script>";
+        echo "<script> location='../index.php'; </script>";
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

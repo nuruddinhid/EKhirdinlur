@@ -1,6 +1,7 @@
 <?php 
 	session_start();
     include 'config/koneksi.php';
+    
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="./vendor//OwlCarousel2-2.3.4//dist/assets/owl.carousel.min.css"/>
     <link rel="stylesheet" href="./vendor//OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <link rel="icon" href="assets/images/logo_sdm.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>E-Khirdinlur</title>
 </head>
@@ -50,15 +52,23 @@
         //$email = $_POST['email'];
         //$password = $_POST['password'];
         //$query = mysqli_query($koneksi, "SELECT * FROM tb-user WHERE User_name='$email' AND User_password='$password'");
-        $ambil = $koneksi->query("SELECT * FROM tb_user WHERE User_name='$_POST[email]' AND User_password='$_POST[password]'");
+        $ambil = $koneksi->query("SELECT * FROM tb_user WHERE User_Email='$_POST[email]' AND User_password='$_POST[password]'");
         //menghitung akun yang cocok
         $akunyangcocok = $ambil->num_rows;
-        if($akunyangcocok==1){
-            $_SESSION['tb-user']=$ambil->fetch_assoc();
-            echo "<script>alert('Login Berhasil');</script>";
-            echo "<script>location='./dashboard/index.php';</script>";
+        if($akunyangcocok>0){
+            $data = mysqli_fetch_assoc($ambil);
+
+            if($data['User_Role']== "Admin"){
+                $_SESSION['User_Email'] = $email;
+                $_SESSION['User_Role'] = "Admin";
+                header("Location: administrator/index.php");
+            }else if($data['User_Role']== "User"){
+                $_SESSION['User_Email'] = $email;
+                $_SESSION['User_Role'] = "User";
+                header("Location: Dashboard/index.php");
+            }
         }else{
-            echo "<script>alert('Login Gagal');</script>";
+            echo "<script>alert('Login Gagal Email Tidak Ditemukan');</script>";
             echo "<script>location='index.php';</script>";
         }
     }
