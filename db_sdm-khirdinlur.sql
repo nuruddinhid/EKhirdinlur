@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Okt 2023 pada 05.08
+-- Waktu pembuatan: 10 Des 2023 pada 05.34
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -24,57 +24,47 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb-anggota`
+-- Struktur dari tabel `tb_gaji`
 --
 
-CREATE TABLE `tb-anggota` (
-  `anggota_id` int(11) NOT NULL,
-  `anggota_name` varchar(50) NOT NULL,
-  `pangkat_id` int(11) NOT NULL,
-  `anggota_nrp` varchar(50) NOT NULL,
-  `anggota_jabatan` varchar(50) NOT NULL,
-  `satuan_id` int(11) NOT NULL,
-  `anggota_alamat` text NOT NULL,
-  `anggota_asabri` varchar(50) NOT NULL,
-  `anggota_npwp` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb-gaji`
---
-
-CREATE TABLE `tb-gaji` (
+CREATE TABLE `tb_gaji` (
   `gaji_id` int(11) NOT NULL,
   `pangkat_ID` int(11) NOT NULL,
   `gaji_MKG` int(11) NOT NULL,
   `gaji_GPT` int(11) NOT NULL,
   `gaji_SIUN` int(11) NOT NULL,
   `gaji_JANDA` int(11) NOT NULL,
-  `gaji_y/p1` int(11) NOT NULL,
-  `gaji_y/p2` int(11) NOT NULL,
-  `gaji_y-p1` int(11) NOT NULL,
-  `gaji_y-p2` int(11) NOT NULL
+  `gaji_yorp1` int(11) NOT NULL,
+  `gaji_yorp2` int(11) NOT NULL,
+  `gaji_ynp1` int(11) NOT NULL,
+  `gaji_ynp2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_gaji`
+--
+
+INSERT INTO `tb_gaji` (`gaji_id`, `pangkat_ID`, `gaji_MKG`, `gaji_GPT`, `gaji_SIUN`, `gaji_JANDA`, `gaji_yorp1`, `gaji_yorp2`, `gaji_ynp1`, `gaji_ynp2`) VALUES
+(8, 1, 32, 5084300, 0, 1778000, 511300, 1021800, 1150200, 1533600),
+(13, 1, 30, 4928900, 0, 3728900, 493700, 994900, 1110600, 1533600);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb-pangkat`
+-- Struktur dari tabel `tb_pangkat`
 --
 
-CREATE TABLE `tb-pangkat` (
+CREATE TABLE `tb_pangkat` (
   `pangkat_ID` int(11) NOT NULL,
   `pangkat_name` varchar(50) NOT NULL,
   `pangkat_pa/ba` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb-pangkat`
+-- Dumping data untuk tabel `tb_pangkat`
 --
 
-INSERT INTO `tb-pangkat` (`pangkat_ID`, `pangkat_name`, `pangkat_pa/ba`) VALUES
+INSERT INTO `tb_pangkat` (`pangkat_ID`, `pangkat_name`, `pangkat_pa/ba`) VALUES
 (1, 'AKBP', 'PERWIRA'),
 (2, 'KOMPOL', 'PERWIRA'),
 (3, 'AKP', 'PERWIRA'),
@@ -88,55 +78,35 @@ INSERT INTO `tb-pangkat` (`pangkat_ID`, `pangkat_name`, `pangkat_pa/ba`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb-pengajuan`
+-- Struktur dari tabel `tb_pengajuan`
 --
 
-CREATE TABLE `tb-pengajuan` (
-  `pengajuan_id` int(11) NOT NULL
+CREATE TABLE `tb_pengajuan` (
+  `pengajuan_id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `pangkat` varchar(100) NOT NULL,
+  `paba` varchar(100) NOT NULL,
+  `nrp` varchar(100) NOT NULL,
+  `satwil` varchar(100) NOT NULL,
+  `satker` varchar(100) NOT NULL,
+  `asabri` varchar(100) NOT NULL,
+  `npwp` varchar(100) NOT NULL,
+  `katma` varchar(100) NOT NULL,
+  `tgllahir` date NOT NULL,
+  `alamat` text NOT NULL,
+  `dusun` varchar(100) NOT NULL,
+  `kelurahan` varchar(100) NOT NULL,
+  `kecamatan` text NOT NULL,
+  `kabupaten` varchar(100) NOT NULL,
+  `provinsi` varchar(100) NOT NULL,
+  `bank` varchar(100) NOT NULL,
+  `tglmpdh` date NOT NULL,
+  `tglmpens` date NOT NULL,
+  `jmlanak` int(11) NOT NULL,
+  `nmanak` varchar(100) NOT NULL,
+  `hubanak` varchar(100) NOT NULL,
+  `berkas_formspp` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb-satuan`
---
-
-CREATE TABLE `tb-satuan` (
-  `satuan_ID` int(11) NOT NULL,
-  `satuan_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `tb-satuan`
---
-
-INSERT INTO `tb-satuan` (`satuan_ID`, `satuan_name`) VALUES
-(1, 'POLDA DIY'),
-(2, 'POLRESTA SLEMAN'),
-(3, 'POLRES BANTUL'),
-(4, 'POLRES KULONPROGO'),
-(5, 'POLRES GUNUNGKIDUL'),
-(6, 'POLRESTA YOGYAKARTA');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb_admin`
---
-
-CREATE TABLE `tb_admin` (
-  `admin_ID` int(11) NOT NULL,
-  `admin_name` varchar(50) NOT NULL,
-  `admin_password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `tb_admin`
---
-
-INSERT INTO `tb_admin` (`admin_ID`, `admin_name`, `admin_password`) VALUES
-(1, 'admin@gmail.com', 'admin'),
-(2, 'admin1', 'admin1');
 
 -- --------------------------------------------------------
 
@@ -147,91 +117,72 @@ INSERT INTO `tb_admin` (`admin_ID`, `admin_name`, `admin_password`) VALUES
 CREATE TABLE `tb_user` (
   `User_ID` int(11) NOT NULL,
   `User_Name` varchar(50) NOT NULL,
-  `User_Password` varchar(50) NOT NULL
+  `User_Email` varchar(50) NOT NULL,
+  `User_Password` varchar(50) NOT NULL,
+  `User_Satwil` varchar(50) NOT NULL,
+  `User_Satker` varchar(255) NOT NULL,
+  `User_Role` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_user`
 --
 
-INSERT INTO `tb_user` (`User_ID`, `User_Name`, `User_Password`) VALUES
-(1, 'nuruddinh065@gmail.com', '201837');
+INSERT INTO `tb_user` (`User_ID`, `User_Name`, `User_Email`, `User_Password`, `User_Satwil`, `User_Satker`, `User_Role`) VALUES
+(1, 'Nuruddin Hidayat', 'nuruddinh065@gmail.com', '201837', '', '', 'Admin'),
+(2, 'Nuruddin Hidayat', 'user@gmail.com', '201837', 'Polda DIY', 'Satsabhara', 'User'),
+(6, 'fahrul', 'udin2k18@gmail.com', '2312', 'Polresta YKA', 'SDM', 'User'),
+(7, 'ASGH', 'ahmadagusss482@gmail.com', '111', 'Polresta YKA', 'SDM', 'User');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `tb-anggota`
+-- Indeks untuk tabel `tb_gaji`
 --
-ALTER TABLE `tb-anggota`
-  ADD PRIMARY KEY (`anggota_id`),
-  ADD UNIQUE KEY `pangkat_id` (`pangkat_id`),
-  ADD UNIQUE KEY `satuan_id` (`satuan_id`);
+ALTER TABLE `tb_gaji`
+  ADD PRIMARY KEY (`gaji_id`);
 
 --
--- Indeks untuk tabel `tb-gaji`
+-- Indeks untuk tabel `tb_pangkat`
 --
-ALTER TABLE `tb-gaji`
-  ADD PRIMARY KEY (`gaji_id`),
-  ADD UNIQUE KEY `pangkat_ID` (`pangkat_ID`);
-
---
--- Indeks untuk tabel `tb-pangkat`
---
-ALTER TABLE `tb-pangkat`
+ALTER TABLE `tb_pangkat`
   ADD PRIMARY KEY (`pangkat_ID`);
 
 --
--- Indeks untuk tabel `tb-satuan`
+-- Indeks untuk tabel `tb_pengajuan`
 --
-ALTER TABLE `tb-satuan`
-  ADD PRIMARY KEY (`satuan_ID`);
+ALTER TABLE `tb_pengajuan`
+  ADD PRIMARY KEY (`pengajuan_id`);
 
 --
--- Indeks untuk tabel `tb_admin`
+-- Indeks untuk tabel `tb_user`
 --
-ALTER TABLE `tb_admin`
-  ADD PRIMARY KEY (`admin_ID`);
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`User_ID`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tb-gaji`
+-- AUTO_INCREMENT untuk tabel `tb_gaji`
 --
-ALTER TABLE `tb-gaji`
-  MODIFY `gaji_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tb_gaji`
+  MODIFY `gaji_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `tb-satuan`
+-- AUTO_INCREMENT untuk tabel `tb_pengajuan`
 --
-ALTER TABLE `tb-satuan`
-  MODIFY `satuan_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `tb_pengajuan`
+  MODIFY `pengajuan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_admin`
+-- AUTO_INCREMENT untuk tabel `tb_user`
 --
-ALTER TABLE `tb_admin`
-  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `tb-anggota`
---
-ALTER TABLE `tb-anggota`
-  ADD CONSTRAINT `tb-anggota_ibfk_1` FOREIGN KEY (`pangkat_id`) REFERENCES `tb-pangkat` (`pangkat_ID`),
-  ADD CONSTRAINT `tb-anggota_ibfk_2` FOREIGN KEY (`satuan_id`) REFERENCES `tb-satuan` (`satuan_ID`);
-
---
--- Ketidakleluasaan untuk tabel `tb-gaji`
---
-ALTER TABLE `tb-gaji`
-  ADD CONSTRAINT `tb-gaji_ibfk_1` FOREIGN KEY (`pangkat_ID`) REFERENCES `tb-pangkat` (`pangkat_ID`);
+ALTER TABLE `tb_user`
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
