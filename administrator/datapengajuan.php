@@ -139,8 +139,7 @@
                                 </span>
                             </td>
                             <td class="py-2 px-4 border-b border-b-gray-50">
-                                <span
-                                    class="inline-block p-1 rounded bg-emerald-500/10 text-emerald-500 font-medium text-[12px] leading-none">Completed</span>
+                                <i class="ri-printer-line"></i>
                             </td>
                         </tr>
                         <?php $nomor++ ?>
