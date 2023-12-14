@@ -33,8 +33,11 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected>Pilih MKG</option>
                         <option value="32">32</option>
+                        <option value="31">31</option>
                         <option value="30">30</option>
+                        <option value="29">29</option>
                         <option value="28">28</option>
+                        <option value="27">27</option>
                         <option value="26">26</option>
                     </select>
                 </div>

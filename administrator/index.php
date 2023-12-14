@@ -18,6 +18,7 @@ session_start();
 <body class="text-gray-800 font-inter">
     <!-- start: Main -->
     <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
+        <?php include '../config/koneksi.php'; ?>    
         <?php include 'component/navbar.php'; ?>
         <?php include 'component/sidebar.php'; ?>
         <!-- start: Container -->
@@ -28,6 +29,12 @@ session_start();
                 switch ($_GET['x']) {
                     case 'datapengajuan':
                         include 'datapengajuan.php';
+                        break;
+                    case 'datapengajuansetuju':
+                        include 'datapengajuanConfirm.php';
+                        break;
+                    case 'datapengajuantolak':
+                        include 'datapengajuanReject.php';
                         break;
                     case 'datapengguna':
                         include 'datapengguna.php';

@@ -16,7 +16,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php include '../config/koneksi.php'; ?>
                     <?php $nomor = 1; ?>
                     <?php $result = $koneksi->query("SELECT * FROM tb_pengajuan"); ?>
                     <?php while ($pecah = $result->fetch_assoc()) { ?>

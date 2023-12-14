@@ -47,6 +47,20 @@
                                         echo 'AKBP';
                                     }else if ($pangkat == 2) {
                                         echo 'KOMPOL';
+                                    }else if ($pangkat == 3) {
+                                        echo 'AKP';
+                                    }else if ($pangkat == 4) {
+                                        echo 'IPTU';
+                                    }else if ($pangkat == 5) {
+                                        echo 'IPDA';
+                                    }else if ($pangkat == 6) {
+                                        echo 'AIPTU';
+                                    }else if ($pangkat == 7) {
+                                        echo 'AIPDA';
+                                    }else if ($pangkat == 8) {
+                                        echo 'BRIPKA';
+                                    }else if ($pangkat == 9) {
+                                        echo 'BRIGADIR';
                                     }
                                     ?>
                                 </span>

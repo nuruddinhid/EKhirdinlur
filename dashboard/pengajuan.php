@@ -310,7 +310,7 @@
                     <label for="hubanak"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fotokopi/Salinan Kep
                         Pensiun</label>
-                    <input
+                    <input name="keppensiun"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -320,7 +320,7 @@
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fotokopi
                         Kep Pengangkatan Pertama</label>
-                    <input
+                    <input name="keppengangkatan"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -330,7 +330,7 @@
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Asli SKPP
                         dari BKN</label>
-                    <input
+                    <input name="skpp"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -340,7 +340,7 @@
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fotokopi
                         Kartu ASABRI</label>
-                    <input
+                    <input name="asabri"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -350,7 +350,7 @@
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Daftar
                         Riwayat Hidup</label>
-                    <input
+                    <input name="riwayathidup"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -360,7 +360,7 @@
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fotokopi
                         KK</label>
-                    <input
+                    <input name="kartukeluarga"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -370,7 +370,7 @@
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fotokopi
                         KTP/SIM yang masih berlaku (Suami/Istri)</label>
-                    <input
+                    <input name="ktpsim"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -380,7 +380,7 @@
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Asli Surat
                         Keterangan Kuliah (Jika anak dalam tanggungan masih kuliah)</label>
-                    <input
+                    <input name="suratketerangankuliah"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -390,7 +390,7 @@
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pas Foto
                         (4x6)</label>
-                    <input
+                    <input name="pasfoto"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -400,7 +400,7 @@
                 <div class="mb-6">
                     <label for="hubanak"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NPWP</label>
-                    <input
+                    <input name="npwp"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
@@ -448,13 +448,63 @@
             $tgllahir_anak3 = date('Y-m-d', strtotime($_POST['tglanak3']));
             $hub_anak3 = $_POST['hubanak3'];
 
-            //berkas
+            //berkas form spp
             $berkasformulirspp = $_FILES['formspp']['name'];
             $lokasiformulirspp = $_FILES['formspp']['tmp_name'];
             move_uploaded_file($lokasiformulirspp, "../berkas/formulirspp/" . $berkasformulirspp);
 
+            //berkas kep pensiun
+            $berkaskeppensiun = $_FILES['keppensiun']['name'];
+            $lokasikeppensiun = $_FILES['keppensiun']['tmp_name'];
+            move_uploaded_file($lokasikeppensiun, "../berkas/keppensiun/" . $berkaskeppensiun);
+
+            //berkas kep pengangkatan pertama
+            $berkaskeppengangkatan = $_FILES['keppengangkatan']['name'];
+            $lokasikeppengangkatan = $_FILES['keppengangkatan']['tmp_name'];
+            move_uploaded_file($lokasikeppengangkatan, "../berkas/keppengangkatan/" . $berkaskeppengangkatan);
+
+            //berkas SKPPP dari BKN
+            $berkasskpp = $_FILES['skpp']['name'];
+            $lokasiskpp = $_FILES['skpp']['tmp_name'];
+            move_uploaded_file($lokasiskpp, "../berkas/skpp/" . $berkasskpp);
+
+            //berkas ASABRI
+            $berkasasabri = $_FILES['asabri']['name'];
+            $lokasiasabri = $_FILES['asabri']['tmp_name'];
+            move_uploaded_file($lokasiasabri, "../berkas/asabri/" . $berkasasabri);
+
+            //berkas daftar riwayat hidup
+            $berkasriwayathidup = $_FILES['riwayathidup']['name'];
+            $lokasiriwayathidup = $_FILES['riwayathidup']['tmp_name'];
+            move_uploaded_file($lokasiriwayathidup, "../berkas/riwayathidup/" . $berkasriwayathidup);
+
+            //berkas kartu keluaraga
+            $berkaskartukeluarga = $_FILES['kartukeluarga']['name'];
+            $lokasikartukeluarga = $_FILES['kartukeluarga']['tmp_name'];
+            move_uploaded_file($lokasikartukeluarga, "../berkas/kartukeluarga/" . $berkaskartukeluarga);
+
+            //berkas ktp/sim
+            $berkasktpsim = $_FILES['ktpsim']['name'];
+            $lokasiktpsim = $_FILES['ktpsim']['tmp_name'];
+            move_uploaded_file($lokasiktpsim, "../berkas/ktpsim/" . $berkasktpsim);
+
+            //berkas surat keterangan kuliah
+            $berkassuratketerangankuliah = $_FILES['suratketerangankuliah']['name'];
+            $lokasisuratketerangankuliah = $_FILES['suratketerangankuliah']['tmp_name'];
+            move_uploaded_file($lokasisuratketerangankuliah, "../berkas/suratketerangankuliah/" . $berkassuratketerangankuliah);
+
+            //berkas Pas Foto
+            $berkaspasfoto = $_FILES['pasfoto']['name'];
+            $lokasipasfoto = $_FILES['pasfoto']['tmp_name'];
+            move_uploaded_file($lokasipasfoto, "../berkas/pasfoto/" . $berkaspasfoto);
+            
+            //berkas NPWP
+            $berkasnpwp = $_FILES['npwp']['name'];
+            $lokasinpwp = $_FILES['npwp']['tmp_name'];
+            move_uploaded_file($lokasinpwp, "../berkas/npwp/" . $berkasnpwp);
+            
             //input ke dalam database
-            $koneksi->query("INSERT INTO tb_pengajuan (nama, pangkat, paba, nrp, satwil, satker, asabri, npwp, katma, tgllahir, alamat, dusun, kelurahan, kecamatan, kabupaten, provinsi, bank, tglmpdh, tglmpens, nmistri, tgllahir_istri, nmanak1, tgllahir_anak1, hubanak1, nmanak2, tgllahir_anak2, hubanak2, nmanak3, tgllahir_anak3, hubanak3) VALUES ('$nama','$pangkat','$paba','$nrp','$satwil','$satuan','$asabri','$npwp','$katma','$tgllahir','$alamat','$dusun','$kelurahan','$kecamatan','$kabupaten','$provinsi','$bank','$tglmpdh','$tglmpens', '$namasuamiistri', '$tgllahir_suamiistri', '$namaanak1', '$tgllahir_anak1', '$hub_anak1', '$namaanak2', '$tgllahir_anak2', '$hub_anak2', '$namaanak3', '$tgllahir_anak3', '$hub_anak3')");
+            $koneksi->query("INSERT INTO tb_pengajuan (nama, pangkat, paba, nrp, satwil, satker, asabri, npwp, katma, tgllahir, alamat, dusun, kelurahan, kecamatan, kabupaten, provinsi, bank, tglmpdh, tglmpens, nmistri, tgllahir_istri, nmanak1, tgllahir_anak1, hubanak1, nmanak2, tgllahir_anak2, hubanak2, nmanak3, tgllahir_anak3, hubanak3, berkas_formspp, berkas_keppensiun, berkas_keppengangkatanpertama, berkas_skpp, berkas_asabri, berkas_riwayathidup, berkas_kk, berkas_ktpsim, berkas_suketkuliah, berkas_pasfoto, berkas_npwp) VALUES ('$nama','$pangkat','$paba','$nrp','$satwil','$satuan','$asabri','$npwp','$katma','$tgllahir','$alamat','$dusun','$kelurahan','$kecamatan','$kabupaten','$provinsi','$bank','$tglmpdh','$tglmpens', '$namasuamiistri', '$tgllahir_suamiistri', '$namaanak1', '$tgllahir_anak1', '$hub_anak1', '$namaanak2', '$tgllahir_anak2', '$hub_anak2', '$namaanak3', '$tgllahir_anak3', '$hub_anak3', '$berkasformulirspp', '$berkaskeppensiun', '$berkaskeppengangkatan', '$berkasskpp', '$berkasasabri', '$berkasriwayathidup', '$berkaskartukeluarga', '$berkasktpsim', '$berkassuratketerangankuliah', '$berkaspasfoto', '$berkasnpwp')");
         }
         ?>
     </div>

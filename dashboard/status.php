@@ -21,28 +21,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <div class="flex items-center">
-                                <span class="text-[13px] font-medium text-gray-400">1</span>
-                            </div>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">Arjuna</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">3402012312001</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">Polres Bantul</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">Bareskrim</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="inline-block p-1 rounded bg-emerald-500/10 text-emerald-500 font-medium text-[12px] leading-none">In progress</span>
-                        </td>
-                    </tr>
+                    <?php $nomor = 1; ?>
+                    <?php $result = $koneksi->query("SELECT * FROM tb_pengajuan WHERE status_pengajuan = ' ' "); ?>
+                    <?php while ($pecah = $result->fetch_assoc()) { ?>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-b-gray-50 text-center">
+                                <div class="flex items-center">
+                                    <span class="text-[13px] font-medium text-gray-400"> <?php echo $nomor; ?> </span>
+                                </div>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['nama']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['nrp']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['satwil']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['satker']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="inline-block p-1 rounded bg-emerald-500/10 text-emerald-500 font-medium text-[12px] leading-none">In progress</span>
+                            </td>
+                        </tr>
+                        <?php $nomor++ ?>
+                    <?php } ?>
                 </tbody>
             </table>
             <table class="w-full min-w-[540px] hidden" data-tab-for="order" data-page="disetujui">
@@ -57,28 +62,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <div class="flex items-center">
-                                <span class="text-[13px] font-medium text-gray-400">1</span>
-                            </div>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">Arjuna</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">3402012312001</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">Polres Bantul</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">Bareskrim</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="inline-block p-1 rounded bg-emerald-500/10 text-emerald-500 font-medium text-[12px] leading-none">Completed</span>
-                        </td>
-                    </tr>
+                    <?php $nomor = 1; ?>
+                    <?php $result = $koneksi->query("SELECT * FROM tb_pengajuan WHERE status_pengajuan = 'Disetujui'"); ?>
+                    <?php while ($pecah = $result->fetch_assoc()) { ?>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-b-gray-50 text-center">
+                                <div class="flex items-center">
+                                    <span class="text-[13px] font-medium text-gray-400"> <?php echo $nomor; ?> </span>
+                                </div>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['nama']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['nrp']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['satwil']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['satker']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="inline-block p-1 rounded bg-emerald-500/10 text-emerald-500 font-medium text-[12px] leading-none">In progress</span>
+                            </td>
+                        </tr>
+                        <?php $nomor++ ?>
+                    <?php } ?>
                 </tbody>
             </table>
             <table class="w-full min-w-[540px] hidden" data-tab-for="order" data-page="ditolak">
@@ -94,28 +104,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <div class="flex items-center">
-                                <span class="text-[13px] font-medium text-gray-400">1</span>
-                            </div>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">Arjuna</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">3402012312001</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">Polres Bantul</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="text-[13px] font-medium text-gray-400">Bareskrim</span>
-                        </td>
-                        <td class="py-2 px-4 border-b border-b-gray-50">
-                            <span class="inline-block p-1 rounded bg-rose-500/10 text-rose-500 font-medium text-[12px] leading-none">Canceled</span>
-                        </td>
-                    </tr>
+                    <?php $nomor = 1; ?>
+                    <?php $result = $koneksi->query("SELECT * FROM tb_pengajuan WHERE status_pengajuan = 'Ditolak'"); ?>
+                    <?php while ($pecah = $result->fetch_assoc()) { ?>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-b-gray-50 text-center">
+                                <div class="flex items-center">
+                                    <span class="text-[13px] font-medium text-gray-400"> <?php echo $nomor; ?> </span>
+                                </div>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['nama']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['nrp']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['satwil']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['satker']; ?> </span>
+                            </td>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <span class="inline-block p-1 rounded bg-rose-500/10 text-rose-500 font-medium text-[12px] leading-none">Canceled</span>
+                            </td>
+                        </tr>
+                        <?php $nomor++ ?>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
