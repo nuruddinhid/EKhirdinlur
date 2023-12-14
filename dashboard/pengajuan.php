@@ -257,7 +257,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
             </div>
-            <!-- Input Hubungan Anak 1 -->
+            <!-- Input Hubungan Anak 2 -->
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hubungan
@@ -276,7 +276,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Masukkan Nama Anak">
                 </div>
-                <!-- Input Tanggal Anak 1 -->
+                <!-- Input Tanggal Anak 3 -->
                 <div class="mb-6">
                     <label for="tanggalanak3"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal lahir</label>
@@ -284,12 +284,12 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
             </div>
-            <!-- Input Hubungan Anak 1 -->
+            <!-- Input Hubungan Anak 3 -->
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="mb-6">
                     <label for="hubanak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hubungan
                         Anak 3</label>
-                    <input type="text" name="hubanak3`" id="hubanak3"
+                    <input type="text" name="hubanak3" id="hubanak3"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Masukkan Hubungan Anak">
                 </div>
@@ -436,6 +436,17 @@
             $bank = $_POST['bank'];
             $tglmpdh = date('Y-m-d', strtotime($_POST['tglmpdh']));
             $tglmpens = date('Y-m-d', strtotime($_POST['tglmpens']));
+            $namasuamiistri = $_POST['nmsuamiistri'];
+            $tgllahir_suamiistri = date('Y-m-d', strtotime($_POST['tgllahirsuamiistri']));
+            $namaanak1 = $_POST['nmanak1'];
+            $tgllahir_anak1 = date('Y-m-d', strtotime($_POST['tglanak1']));
+            $hub_anak1 = $_POST['hubanak1'];
+            $namaanak2 = $_POST['nmanak2'];
+            $tgllahir_anak2 = date('Y-m-d', strtotime($_POST['tglanak2']));
+            $hub_anak2 = $_POST['hubanak2'];
+            $namaanak3 = $_POST['nmanak3'];
+            $tgllahir_anak3 = date('Y-m-d', strtotime($_POST['tglanak3']));
+            $hub_anak3 = $_POST['hubanak3'];
 
             //berkas
             $berkasformulirspp = $_FILES['formspp']['name'];
@@ -443,7 +454,7 @@
             move_uploaded_file($lokasiformulirspp, "../berkas/formulirspp/" . $berkasformulirspp);
 
             //input ke dalam database
-            $koneksi->query("INSERT INTO tb_pengajuan (nama, pangkat, paba, nrp, satwil, satker, asabri, npwp, katma, tgllahir, alamat, dusun, kelurahan, kecamatan, kabupaten, provinsi, bank, tglmpdh, tglmpens) VALUES ('$nama','$pangkat','$paba','$nrp','$satwil','$satuan','$asabri','$npwp','$katma','$tgllahir','$alamat','$dusun','$kelurahan','$kecamatan','$kabupaten','$provinsi','$bank','$tglmpdh','$tglmpens')");
+            $koneksi->query("INSERT INTO tb_pengajuan (nama, pangkat, paba, nrp, satwil, satker, asabri, npwp, katma, tgllahir, alamat, dusun, kelurahan, kecamatan, kabupaten, provinsi, bank, tglmpdh, tglmpens, nmistri, tgllahir_istri, nmanak1, tgllahir_anak1, hubanak1, nmanak2, tgllahir_anak2, hubanak2, nmanak3, tgllahir_anak3, hubanak3) VALUES ('$nama','$pangkat','$paba','$nrp','$satwil','$satuan','$asabri','$npwp','$katma','$tgllahir','$alamat','$dusun','$kelurahan','$kecamatan','$kabupaten','$provinsi','$bank','$tglmpdh','$tglmpens', '$namasuamiistri', '$tgllahir_suamiistri', '$namaanak1', '$tgllahir_anak1', '$hub_anak1', '$namaanak2', '$tgllahir_anak2', '$hub_anak2', '$namaanak3', '$tgllahir_anak3', '$hub_anak3')");
         }
         ?>
     </div>
