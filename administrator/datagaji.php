@@ -71,7 +71,7 @@
                                 </span>
                             </td>
                             <td class="py-2 px-4 border-b border-b-gray-50 text-center">
-                                <a
+                                <a href="index.php?x=datagajiupdate&id=<?php echo $pecah['gaji_id']; ?>"
                                     class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
                                 <a href="index.php?x=datagajidelete&id=<?php echo $pecah['gaji_id']; ?>"
                                     onclick="return confirm('Apakah Anda Yakin ?');"

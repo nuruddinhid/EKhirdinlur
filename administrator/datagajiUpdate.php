@@ -1,63 +1,124 @@
-<div>
-    <a data-modal-target="default-modal" data-modal-toggle="default-modal" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
-</div>
-
-<!-- Main modal -->
-<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-md max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    Tambah Data
-                </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="default-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
+<?php
+$ambil = $koneksi->query("SELECT * FROM tb_gaji WHERE gaji_id='$_GET[id]'");
+$pecah = $ambil->fetch_assoc();
+?>
+<div class="p-6">
+    <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
+        <div class="flex justify-between mb-4 items-start">
+            <div class="font-medium">Data Gaji</div>
+        </div>
+        <br>
+        <form method="POST" enctype="multipart/form-data">
+            <!--  Pangkat -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="pangkat"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pangkat</label>
+                    <span class="text-[14px] font-medium text-gray-400">
+                        <?php echo $pecah['pangkat_name']; ?>
+                    </span>
+                </div>
+            </div>
+            <!-- MKG -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="mkg" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">MKG</label>
+                    <span class="text-[14px] font-medium text-gray-400">
+                        <?php echo $pecah['gaji_MKG']; ?>
+                    </span>
+                </div>
+            </div>
+            <!-- Input GPT -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="gpt" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">GPT</label>
+                    <input type="text" id="gpt" name="gpt"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Masukkan GPT">
+                </div>
+            </div>
+            <!-- Input SIUN -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="siun" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">SIUN</label>
+                    <input type="text" id="siun" name="siun"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Masukkan SIUN">
+                </div>
+            </div>
+            <!-- Input JANDA -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="janda"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">JANDA</label>
+                    <input type="text" id="janda" name="janda"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Masukkan JANDA">
+                </div>
+            </div>
+            <!-- Input Y/P 1 -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="y/p1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yatim/Piatu
+                        1</label>
+                    <input type="text" id="yorp1" name="yorp1"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Masukkan Yatim/Piatu 1">
+                </div>
+            </div>
+            <!-- Input Y/P 2 -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="y/p2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yatim/Piatu
+                        2</label>
+                    <input type="text" id="yorp2" name="yorp2"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Masukkan Yatim/Piatu 2">
+                </div>
+            </div>
+            <!-- Input Y-P 1 -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="y-p1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yatim-Piatu
+                        1</label>
+                    <input type="text" id="ynp1" name="ynp1"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Masukkan Yatim-Piatu 1">
+                </div>
+            </div>
+            <!-- Input Y-P 2 -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="y-p2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yatim-Piatu
+                        2</label>
+                    <input type="text" id="ynp2" name="ynp2"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Masukkan Yatim-Piatu 2">
+                </div>
+            </div>
+            <!-- Tombol Submit -->
+            <div class="mb-6">
+                <button type="submit" name="tambah"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                    Tambah
                 </button>
             </div>
-            <!-- Modal body -->
-            <form class="p-4 md:p-5">
-                <div class="grid gap-4 mb-4 grid-cols-2">
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">GPT</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
-                    </div>
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">SIUN</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
-                    </div>
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">JANDA</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
-                    </div>
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yatim/Piatu 1</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
-                    </div>
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yatim/Piatu 2</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
-                    </div>
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yatim-Piatu 1</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
-                    </div>
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yatim-Piatu 2</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
-                    </div>
-                </div>
-                <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
-                    </svg>
-                    Add new product
-                </button>
-            </form>
-        </div>
+        </form>
+        <?php
+        include '../config/koneksi.php';
+        if (isset($_POST['tambah'])) {
+            
+            $gpt = $_POST['gpt'];
+            $janda = $_POST['janda'];
+            $yorp1 = $_POST['yorp1'];
+            $yorp2 = $_POST['yorp2'];
+            $ynp1 = $_POST['ynp1'];
+            $ynp2 = $_POST['ynp2'];
+            $koneksi->query("UPDATE tb_gaji SET gaji_GPT='$gpt',  WHERE User_ID = '$_GET[id]'");
+
+            echo "<script> alert('Data berhasil ditambahkan'); </script>";
+            echo "<script> location='index.php?x=datagaji'; </script>";
+        }
+        ?>
     </div>
 </div>

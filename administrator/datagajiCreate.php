@@ -123,8 +123,8 @@
         if (isset($_POST['tambah'])) {
 
             $koneksi->query("
-                INSERT INTO tb_gaji (pangkat_ID, gaji_MKG, gaji_GPT, gaji_JANDA, gaji_yorp1, gaji_yorp2, gaji_ynp1, gaji_ynp2)
-                VALUES ('$_POST[pangkat]', '$_POST[mkg]', '$_POST[gpt]', '$_POST[janda]', '$_POST[yorp1]', '$_POST[yorp2]', '$_POST[ynp1]', '$_POST[ynp2]')
+                INSERT INTO tb_gaji (pangkat_ID, gaji_MKG, gaji_GPT, gaji_SIUN, gaji_JANDA, gaji_yorp1, gaji_yorp2, gaji_ynp1, gaji_ynp2)
+                VALUES ('$_POST[pangkat]', '$_POST[mkg]', '$_POST[gpt]', '$_POST[siun]','$_POST[janda]', '$_POST[yorp1]', '$_POST[yorp2]', '$_POST[ynp1]', '$_POST[ynp2]')
             ");
 
             echo "<script> alert('Data berhasil ditambahkan'); </script>";
