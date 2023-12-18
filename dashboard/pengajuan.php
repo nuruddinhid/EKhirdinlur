@@ -43,6 +43,15 @@
                         placeholder="Masukkan NRP">
                 </div>
             </div>
+            <!-- Input Jabatan -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="jabatan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jabatan</label>
+                    <input type="text" id="jabatan" name="jabatan"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Masukkan Jabatan">
+                </div>
+            </div>
             <!-- Input Kesatuan Wilayah -->
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="mb-6">
@@ -84,9 +93,8 @@
                 <div class="mb-6">
                     <label for="katma"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">KATMA</label>
-                    <input type="text" name="katma" id="katma"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Masukkan KATMA">
+                    <input type="date" name="katma" id="katma"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
             </div>
             <!-- Input Tanggal lahir -->
@@ -158,16 +166,6 @@
                         placeholder="Masukkan Provinsi">
                 </div>
             </div>
-            <!-- Input No. HP -->
-            <div class="grid md:grid-cols-2 md:gap-6">
-                <div class="mb-6">
-                    <label for="notelp" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No.
-                        HP</label>
-                    <input type="text" name="notelp" id="notelp"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Masukkan No. HP">
-                </div>
-            </div>
             <!-- Input Bank -->
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="mb-6">
@@ -194,6 +192,15 @@
                         Pensiun</label>
                     <input type="date" name="tglmpens" id="tanggalpensiun"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+            </div>
+            <!-- Input MKG -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6">
+                    <label for="mkg" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">MKG</label>
+                    <input type="text" name="mkg" id="mkg"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Masukkan MKG">
                 </div>
             </div>
             <!-- Input Nama Istri/Suami-->
@@ -421,11 +428,12 @@
             $pangkat = $_POST['pangkat'];
             $paba = $_POST['paba'];
             $nrp = $_POST['nrp'];
+            $jabatan = $_POST['jabatan'];
             $satwil = $_POST['satwil'];
             $satuan = $_POST['satuan'];
             $asabri = $_POST['asabri'];
             $npwp = $_POST['npwp'];
-            $katma = $_POST['katma'];
+            $katma = date('Y-m-d', strtotime($_POST['katma']));
             $tgllahir = date('Y-m-d', strtotime($_POST['tgllahir']));
             $alamat = $_POST['alamat'];
             $dusun = $_POST['dusun'];
@@ -436,6 +444,7 @@
             $bank = $_POST['bank'];
             $tglmpdh = date('Y-m-d', strtotime($_POST['tglmpdh']));
             $tglmpens = date('Y-m-d', strtotime($_POST['tglmpens']));
+            $mkg = $_POST['mkg'];
             $namasuamiistri = $_POST['nmsuamiistri'];
             $tgllahir_suamiistri = date('Y-m-d', strtotime($_POST['tgllahirsuamiistri']));
             $namaanak1 = $_POST['nmanak1'];
@@ -497,14 +506,14 @@
             $berkaspasfoto = $_FILES['pasfoto']['name'];
             $lokasipasfoto = $_FILES['pasfoto']['tmp_name'];
             move_uploaded_file($lokasipasfoto, "../berkas/pasfoto/" . $berkaspasfoto);
-            
+
             //berkas NPWP
             $berkasnpwp = $_FILES['npwp']['name'];
             $lokasinpwp = $_FILES['npwp']['tmp_name'];
             move_uploaded_file($lokasinpwp, "../berkas/npwp/" . $berkasnpwp);
-            
+
             //input ke dalam database
-            $koneksi->query("INSERT INTO tb_pengajuan (nama, pangkat, paba, nrp, satwil, satker, asabri, npwp, katma, tgllahir, alamat, dusun, kelurahan, kecamatan, kabupaten, provinsi, bank, tglmpdh, tglmpens, nmistri, tgllahir_istri, nmanak1, tgllahir_anak1, hubanak1, nmanak2, tgllahir_anak2, hubanak2, nmanak3, tgllahir_anak3, hubanak3, berkas_formspp, berkas_keppensiun, berkas_keppengangkatanpertama, berkas_skpp, berkas_asabri, berkas_riwayathidup, berkas_kk, berkas_ktpsim, berkas_suketkuliah, berkas_pasfoto, berkas_npwp) VALUES ('$nama','$pangkat','$paba','$nrp','$satwil','$satuan','$asabri','$npwp','$katma','$tgllahir','$alamat','$dusun','$kelurahan','$kecamatan','$kabupaten','$provinsi','$bank','$tglmpdh','$tglmpens', '$namasuamiistri', '$tgllahir_suamiistri', '$namaanak1', '$tgllahir_anak1', '$hub_anak1', '$namaanak2', '$tgllahir_anak2', '$hub_anak2', '$namaanak3', '$tgllahir_anak3', '$hub_anak3', '$berkasformulirspp', '$berkaskeppensiun', '$berkaskeppengangkatan', '$berkasskpp', '$berkasasabri', '$berkasriwayathidup', '$berkaskartukeluarga', '$berkasktpsim', '$berkassuratketerangankuliah', '$berkaspasfoto', '$berkasnpwp')");
+            $koneksi->query("INSERT INTO tb_pengajuan (nama, pangkat_name, paba, nrp, jabatan, satwil, satker, asabri, npwp, katma, tgllahir, alamat, dusun, kelurahan, kecamatan, kabupaten, provinsi, bank, tglmpdh, tglmpens, gaji_MKG, nmsuamiistri, tgllahir_suamiistri, nmanak1, tgllahir_anak1, hubanak1, nmanak2, tgllahir_anak2, hubanak2, nmanak3, tgllahir_anak3, hubanak3, berkas_formspp, berkas_keppensiun, berkas_keppengangkatanpertama, berkas_skpp, berkas_asabri, berkas_riwayathidup, berkas_kk, berkas_ktpsim, berkas_suketkuliah, berkas_pasfoto, berkas_npwp) VALUES ('$nama','$pangkat','$paba','$nrp','$jabatan','$satwil','$satuan','$asabri','$npwp','$katma','$tgllahir','$alamat','$dusun','$kelurahan','$kecamatan','$kabupaten','$provinsi','$bank','$tglmpdh','$tglmpens', '$mkg','$namasuamiistri', '$tgllahir_suamiistri', '$namaanak1', '$tgllahir_anak1', '$hub_anak1', '$namaanak2', '$tgllahir_anak2', '$hub_anak2', '$namaanak3', '$tgllahir_anak3', '$hub_anak3', '$berkasformulirspp', '$berkaskeppensiun', '$berkaskeppengangkatan', '$berkasskpp', '$berkasasabri', '$berkasriwayathidup', '$berkaskartukeluarga', '$berkasktpsim', '$berkassuratketerangankuliah', '$berkaspasfoto', '$berkasnpwp')");
         }
         ?>
     </div>

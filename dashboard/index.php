@@ -1,8 +1,8 @@
 <?php
-    //account dimasukkan kedalam session
-    session_start();
-    //harus login
-    
+//account dimasukkan kedalam session
+session_start();
+//harus login
+
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +23,8 @@
     <!-- start: Main -->
     <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
         <?php include '../config/koneksi.php'; ?>
+        <?php include '../config/date_helper.php'; ?>
+        <?php include '../config/generateDownloadLink.php'; ?>
         <?php include 'component/navbar.php'; ?>
         <?php include 'component/sidebar.php'; ?>
         <!-- start: Container -->
@@ -37,17 +39,17 @@
                     case 'data':
                         include 'data.php';
                         break;
-                    case 'status':
-                        include 'status.php';
-                        break;
-                    case 'detaildata':
+                    case 'datadetail':
                         include 'dataDetail.php';
                         break;
-                    case 'updatedata':
+                    case 'datadelete':
+                        include 'dataDelete.php';
+                        break;
+                    case 'dataupdate':
                         include 'dataUpdate.php';
                         break;
-                    case 'hapusdata':
-                        include 'dataDelete.php';
+                    case 'status':
+                        include 'status.php';
                         break;
                 }
             } else {

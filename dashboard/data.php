@@ -38,9 +38,9 @@
                                 <span class="text-[13px] font-medium text-gray-400"> <?php echo $pecah['satker']; ?> </span>
                             </td>
                             <td class="py-2 px-4 border-b border-b-gray-50 text-center">
-                                <a class="focus:outline-none text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-3 py-1.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Detail</a>
-                                <a class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
-                                <a href="index.php?x=hapusdata&id=<?php echo $pecah['pengajuan_id']; ?>" onclick="return confirm('Apakah Anda Yakin ?');" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-3 py-1.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Hapus</a>
+                                <a href="index.php?x=datadetail&id=<?php echo $pecah['pengajuan_id']; ?>" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-3 py-1.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Detail</a>
+                                <a href="index.php?x=dataupdate&id=<?php echo $pecah['pengajuan_id']; ?>" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
+                                <a href="index.php?x=datadelete&id=<?php echo $pecah['pengajuan_id']; ?>" onclick="return confirm('Apakah Anda Yakin ?');" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-3 py-1.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Hapus</a>
                             </td>
                         </tr>
                         <?php $nomor++ ?>
